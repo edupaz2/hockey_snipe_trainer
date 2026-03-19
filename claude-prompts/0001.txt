@@ -1,0 +1,49 @@
+You are an expert Flutter developer specializing in cross-platform mobile apps with Bluetooth Low Energy (BLE) integration for Android and iOS.
+
+Task: Create a complete, production-ready Flutter app that clones the core functionality of the SnipeLights app (https://snipelights.com). SnipeLights is an interactive hockey training system with 4 BLE-enabled light-up targets placed in a goal. The app controls the targets via BLE to run 13 game modes (e.g., "The Hockey Player’s Video Game" where targets light up randomly for 30 seconds; "Rapid Fire" for time-based hits; "Marksman" for repeated hits on one target; color-based games; reaction time challenges). Targets can be turned on/off, change colors (e.g., red, green, blue), and respond to hits.
+
+App Requirements:
+- **Platforms**: Android and iOS (use flutter_blue_plus package for BLE central role).
+- **Core Flow**:
+  1. Splash screen with app name "Hockey Snipe Trainer" and hockey-themed UI.
+  2. Home screen: Scan/connect to up to 4 Snipe targets via BLE (filter by name/service UUID if possible).
+  3. Device list: Show discovered devices with RSSI, connect/disconnect buttons.
+  4. Main game screen: Once connected, select from 12+ game modes (implement at least 5 key ones: Random Snipe 30s, Time to 10, Reaction Time, Marksman, Color Hunt).
+  5. Game UI: Visual targets (4 colored circles), score/timer display, start/pause/reset buttons. Real-time sync with targets.
+  6. Stats screen: High scores per mode, total shots, accuracy.
+- **BLE Integration** (user knows the specific protocol):
+  - Scan for peripherals advertising as Snipe targets.
+  - Connect to multiple devices (manage 4 connections).
+  - Discover services/characteristics for: on/off, color set (RGB values), hit detection (notifications), game sync.
+  - Commands: Write to characteristics (e.g., bytes for color: [R,G,B], on/off: 0x01/0x00).
+  - Notifications: Listen for hit events from targets to update score/UI.
+  - Handle reconnections, errors, battery status if available.
+  - Permissions: Auto-request Bluetooth/location on Android/iOS.
+- **UI/UX**:
+  - Modern, engaging hockey theme: Dark mode, neon lights/glow effects, animations for hits (particles, shakes).
+  - Responsive for phone/tablet.
+  - Multiplayer hints (e.g., 1-2 player modes).
+  - Sounds: Puck hit SFX, cheers (use audioplayers).
+- **Tech Stack**:
+  - Flutter 3.x+, Provider or Riverpod for state.
+  - flutter_blue_plus for BLE.
+  - Permissions: permission_handler.
+  - Animations: flare_flutter or Lottie.
+  - Storage: hive or shared_preferences for scores.
+  - No backend needed.
+- **Structure**:
+  - Provide full project structure (lib/, pubspec.yaml).
+  - Key files: main.dart, ble_service.dart, game_controller.dart, game_modes.dart, ui screens.
+  - Handle platform differences (e.g., iOS background BLE).
+  - Error handling, loading states, offline mode.
+
+Output Format:
+1. pubspec.yaml.
+2. lib/main.dart.
+3. Core services (BLE, game logic).
+4. All screens as separate files.
+5. Usage instructions, including how to adapt the custom BLE protocol (provide placeholders like writeColor(deviceId, [r,g,b]), onHitNotification()).
+6. Android/iOS setup (Info.plist, manifest permissions).
+
+Make it runnable out-of-the-box after pub get & flutter run. Optimize for performance (e.g., isolate BLE). Testable with BLE simulators like nRF Connect/LightBlue.
+
