@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     gradient: AppColors.primaryGradient,
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primary.withOpacity(0.5),
+                        color: AppColors.primary.withValues(alpha: 0.5),
                         blurRadius: 30,
                         spreadRadius: 5,
                       ),
@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     .then()
                     .shimmer(
                       duration: const Duration(milliseconds: 1500),
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.3),
                     ),
                 
                 const SizedBox(height: 40),
@@ -139,7 +139,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
                     valueColor: AlwaysStoppedAnimation(
-                      AppColors.primary.withOpacity(0.7),
+                      AppColors.primary.withValues(alpha: 0.7),
                     ),
                   ),
                 )

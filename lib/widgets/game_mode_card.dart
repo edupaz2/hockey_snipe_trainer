@@ -28,18 +28,18 @@ class GameModeCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: isAvailable 
               ? AppColors.surface 
-              : AppColors.surface.withOpacity(0.5),
+              : AppColors.surface.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: isAvailable 
-                ? mode.color.withOpacity(0.5)
-                : AppColors.textDisabled.withOpacity(0.2),
+                ? mode.color.withValues(alpha: 0.5)
+                : AppColors.textDisabled.withValues(alpha: 0.2),
             width: 2,
           ),
           boxShadow: isAvailable
               ? [
                   BoxShadow(
-                    color: mode.color.withOpacity(0.2),
+                    color: mode.color.withValues(alpha: 0.2),
                     blurRadius: 12,
                   ),
                 ]
@@ -56,8 +56,8 @@ class GameModeCard extends StatelessWidget {
                   height: 40,
                   decoration: BoxDecoration(
                     color: isAvailable 
-                        ? mode.color.withOpacity(0.2)
-                        : AppColors.textDisabled.withOpacity(0.1),
+                        ? mode.color.withValues(alpha: 0.2)
+                        : AppColors.textDisabled.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
@@ -73,7 +73,7 @@ class GameModeCard extends StatelessWidget {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.error.withOpacity(0.2),
+                      color: AppColors.error.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
@@ -88,7 +88,7 @@ class GameModeCard extends StatelessWidget {
                   Icon(
                     Icons.people,
                     size: 16,
-                    color: mode.color.withOpacity(0.7),
+                    color: mode.color.withValues(alpha: 0.7),
                   ),
               ],
             ),
@@ -136,7 +136,7 @@ class GameModeCard extends StatelessWidget {
                   _getModeTypeIcon(),
                   size: 14,
                   color: isAvailable 
-                      ? mode.color.withOpacity(0.7)
+                      ? mode.color.withValues(alpha: 0.7)
                       : AppColors.textDisabled,
                 ),
                 const SizedBox(width: 4),
@@ -145,7 +145,7 @@ class GameModeCard extends StatelessWidget {
                   style: GoogleFonts.roboto(
                     fontSize: 10,
                     color: isAvailable 
-                        ? mode.color.withOpacity(0.7)
+                        ? mode.color.withValues(alpha: 0.7)
                         : AppColors.textDisabled,
                   ),
                 ),

@@ -62,13 +62,13 @@ class AppTheme {
           ),
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.surface,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(
-            color: AppColors.primary.withOpacity(0.2),
+            color: AppColors.primary.withValues(alpha: 0.2),
             width: 1,
           ),
         ),
@@ -78,7 +78,7 @@ class AppTheme {
         size: 24,
       ),
       dividerTheme: DividerThemeData(
-        color: AppColors.primary.withOpacity(0.2),
+        color: AppColors.primary.withValues(alpha: 0.2),
         thickness: 1,
       ),
       progressIndicatorTheme: const ProgressIndicatorThemeData(

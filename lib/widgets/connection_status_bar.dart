@@ -17,10 +17,10 @@ class ConnectionStatusBar extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
-        color: AppColors.success.withOpacity(0.15),
+        color: AppColors.success.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: AppColors.success.withOpacity(0.3),
+          color: AppColors.success.withValues(alpha: 0.3),
         ),
       ),
       child: Row(
@@ -33,14 +33,14 @@ class ConnectionStatusBar extends StatelessWidget {
               color: AppColors.success,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.success.withOpacity(0.5),
+                  color: AppColors.success.withValues(alpha: 0.5),
                   blurRadius: 6,
                 ),
               ],
             ),
           ),
           const SizedBox(width: 12),
-          Icon(
+            const Icon(
             Icons.bluetooth_connected,
             color: AppColors.success,
             size: 18,

@@ -7,7 +7,6 @@ import '../core/constants/app_colors.dart';
 import '../models/game_mode.dart';
 import '../models/game_state.dart';
 import '../controllers/game_controller.dart';
-import '../services/ble_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/target_grid.dart';
 import '../widgets/score_display.dart';
@@ -62,17 +61,22 @@ class _GameScreenState extends ConsumerState<GameScreen> {
       });
     }
     
-    return WillPopScope(
-      onWillPop: () async {
-        if (gameState.isPlaying) {
-          controller.pauseGame();
-          final shouldExit = await _showExitDialog(context);
-          if (!shouldExit) {
-            controller.resumeGame();
-          }
-          return shouldExit;
+    return PopScope(
+      canPop: !gameState.isPlaying,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop || !gameState.isPlaying) {
+          return;
         }
-        return true;
+
+        controller.pauseGame();
+        final shouldExit = await _showExitDialog(context);
+        if (shouldExit) {
+          if (context.mounted) {
+            Navigator.of(context).pop();
+          }
+        } else {
+          controller.resumeGame();
+        }
       },
       child: Scaffold(
         body: Stack(
@@ -135,6 +139,9 @@ class _GameScreenState extends ConsumerState<GameScreen> {
               if (gameState.isPlaying) {
                 controller.pauseGame();
                 final shouldExit = await _showExitDialog(context);
+                if (!context.mounted) {
+                  return;
+                }
                 if (shouldExit) {
                   Navigator.of(context).pop();
                 } else {
@@ -307,20 +314,25 @@ class _GameScreenState extends ConsumerState<GameScreen> {
 
   Widget _buildColorHint(Color requiredColor) {
     String colorName = 'Unknown';
-    if (requiredColor == AppColors.targetRed) colorName = 'RED';
-    else if (requiredColor == AppColors.targetGreen) colorName = 'GREEN';
-    else if (requiredColor == AppColors.targetBlue) colorName = 'BLUE';
-    else if (requiredColor == AppColors.targetYellow) colorName = 'YELLOW';
+    if (requiredColor == AppColors.targetRed) {
+      colorName = 'RED';
+    } else if (requiredColor == AppColors.targetGreen) {
+      colorName = 'GREEN';
+    } else if (requiredColor == AppColors.targetBlue) {
+      colorName = 'BLUE';
+    } else if (requiredColor == AppColors.targetYellow) {
+      colorName = 'YELLOW';
+    }
     
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       decoration: BoxDecoration(
-        color: requiredColor.withOpacity(0.2),
+        color: requiredColor.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: requiredColor, width: 2),
         boxShadow: [
           BoxShadow(
-            color: requiredColor.withOpacity(0.3),
+            color: requiredColor.withValues(alpha: 0.3),
             blurRadius: 12,
           ),
         ],
@@ -410,7 +422,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
 
   Widget _buildCountdownOverlay(GameState gameState) {
     return Container(
-      color: Colors.black.withOpacity(0.7),
+      color: Colors.black.withValues(alpha: 0.7),
       child: Center(
         child: Text(
           gameState.message ?? '',
@@ -420,7 +432,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
             color: AppColors.primary,
             shadows: [
               Shadow(
-                color: AppColors.primary.withOpacity(0.5),
+                color: AppColors.primary.withValues(alpha: 0.5),
                 blurRadius: 30,
               ),
             ],

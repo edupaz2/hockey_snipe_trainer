@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -148,6 +147,7 @@ class BleService extends StateNotifier<BleServiceState> {
       
       // Connect
       await device.bleDevice!.connect(
+        license: License.free,
         timeout: BleConstants.connectionTimeout,
         autoConnect: false,
       );

@@ -35,17 +35,17 @@ class NeonButton extends StatelessWidget {
           vertical: isLarge ? 20 : 14,
         ),
         decoration: BoxDecoration(
-          color: effectiveColor.withOpacity(isDisabled ? 0.1 : 0.15),
+          color: effectiveColor.withValues(alpha: isDisabled ? 0.1 : 0.15),
           borderRadius: BorderRadius.circular(isLarge ? 16 : 12),
           border: Border.all(
-            color: effectiveColor.withOpacity(isDisabled ? 0.3 : 0.6),
+            color: effectiveColor.withValues(alpha: isDisabled ? 0.3 : 0.6),
             width: 2,
           ),
           boxShadow: isDisabled
               ? null
               : [
                   BoxShadow(
-                    color: effectiveColor.withOpacity(0.3),
+                    color: effectiveColor.withValues(alpha: 0.3),
                     blurRadius: 12,
                     spreadRadius: 0,
                   ),

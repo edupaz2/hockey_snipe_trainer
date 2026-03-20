@@ -77,13 +77,13 @@ class StatsScreen extends ConsumerWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.primary.withOpacity(0.15),
-            AppColors.secondary.withOpacity(0.15),
+            AppColors.primary.withValues(alpha: 0.15),
+            AppColors.secondary.withValues(alpha: 0.15),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primary.withOpacity(0.3),
+          color: AppColors.primary.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -159,10 +159,10 @@ class StatsScreen extends ConsumerWidget {
         margin: const EdgeInsets.all(4),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.1),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: color.withOpacity(0.3),
+            color: color.withValues(alpha: 0.3),
           ),
         ),
         child: Column(
@@ -224,7 +224,7 @@ class StatsScreen extends ConsumerWidget {
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: AppColors.surface.withOpacity(0.5),
+              color: AppColors.surface.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -266,7 +266,7 @@ class StatsScreen extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: mode.color.withOpacity(0.3),
+          color: mode.color.withValues(alpha: 0.3),
         ),
       ),
       child: Row(
@@ -276,7 +276,7 @@ class StatsScreen extends ConsumerWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: mode.color.withOpacity(0.2),
+              color: mode.color.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(mode.icon, color: mode.color),

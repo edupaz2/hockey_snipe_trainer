@@ -143,7 +143,7 @@ class SettingsScreen extends ConsumerWidget {
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: AppColors.primary.withOpacity(0.2),
+              color: AppColors.primary.withValues(alpha: 0.2),
             ),
           ),
           child: Column(
@@ -180,7 +180,8 @@ class SettingsScreen extends ConsumerWidget {
       trailing: Switch(
         value: value,
         onChanged: onChanged,
-        activeColor: AppColors.primary,
+        activeThumbColor: AppColors.primary,
+        activeTrackColor: AppColors.primary.withValues(alpha: 0.35),
       ),
     );
   }
@@ -203,11 +204,11 @@ class SettingsScreen extends ConsumerWidget {
               min: 0,
               max: 1,
               activeColor: AppColors.primary,
-              inactiveColor: AppColors.primary.withOpacity(0.3),
+              inactiveColor: AppColors.primary.withValues(alpha: 0.3),
               onChanged: onChanged,
             ),
           ),
-          Icon(Icons.volume_up, color: AppColors.primary, size: 20),
+          const Icon(Icons.volume_up, color: AppColors.primary, size: 20),
         ],
       ),
     );
@@ -236,10 +237,10 @@ class SettingsScreen extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.info.withOpacity(0.1),
+        color: AppColors.info.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.info.withOpacity(0.3),
+          color: AppColors.info.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -247,7 +248,7 @@ class SettingsScreen extends ConsumerWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.bluetooth, color: AppColors.info),
+              const Icon(Icons.bluetooth, color: AppColors.info),
               const SizedBox(width: 8),
               Text(
                 'BLE Protocol Info',

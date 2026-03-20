@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/constants/app_colors.dart';
 import '../models/target_device.dart';
@@ -30,14 +29,14 @@ class DeviceTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isConnected 
-              ? AppColors.success.withOpacity(0.5)
-              : AppColors.primary.withOpacity(0.2),
+              ? AppColors.success.withValues(alpha: 0.5)
+              : AppColors.primary.withValues(alpha: 0.2),
           width: isConnected ? 2 : 1,
         ),
         boxShadow: isConnected
             ? [
                 BoxShadow(
-                  color: AppColors.success.withOpacity(0.2),
+                  color: AppColors.success.withValues(alpha: 0.2),
                   blurRadius: 8,
                 ),
               ]
@@ -50,7 +49,7 @@ class DeviceTile extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: _getStatusColor().withOpacity(0.2),
+              color: _getStatusColor().withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: isConnecting
@@ -99,7 +98,7 @@ class DeviceTile extends StatelessWidget {
                           vertical: 2,
                         ),
                         decoration: BoxDecoration(
-                          color: AppColors.warning.withOpacity(0.2),
+                          color: AppColors.warning.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
@@ -158,7 +157,7 @@ class DeviceTile extends StatelessWidget {
               child: const Text('DISCONNECT'),
             )
           else if (isConnecting)
-            TextButton(
+            const TextButton(
               onPressed: null,
               child: Text(
                 'CONNECTING...',
@@ -202,7 +201,7 @@ class DeviceTile extends StatelessWidget {
           decoration: BoxDecoration(
             color: i < bars 
                 ? AppColors.success
-                : AppColors.textDisabled.withOpacity(0.3),
+                : AppColors.textDisabled.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(1),
           ),
         );

@@ -23,7 +23,7 @@ class GameResultOverlay extends StatelessWidget {
     final isNewHighScore = gameState.message?.contains('HIGH SCORE') ?? false;
     
     return Container(
-      color: Colors.black.withOpacity(0.85),
+      color: Colors.black.withValues(alpha: 0.85),
       child: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -58,7 +58,7 @@ class GameResultOverlay extends StatelessWidget {
                       .fadeIn()
                       .shimmer(
                         duration: const Duration(seconds: 2),
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withValues(alpha: 0.3),
                       ),
                 ] else ...[
                   Text(
@@ -83,7 +83,7 @@ class GameResultOverlay extends StatelessWidget {
                     color: AppColors.surface,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: gameState.mode.color.withOpacity(0.5),
+                      color: gameState.mode.color.withValues(alpha: 0.5),
                       width: 2,
                     ),
                   ),
@@ -157,7 +157,7 @@ class GameResultOverlay extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surface.withOpacity(0.5),
+        color: AppColors.surface.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(

@@ -93,7 +93,7 @@ class _DeviceScanScreenState extends ConsumerState<DeviceScanScreen> {
           Container(
             decoration: BoxDecoration(
               color: bleState.isScanning 
-                  ? AppColors.primary.withOpacity(0.2)
+                  ? AppColors.primary.withValues(alpha: 0.2)
                   : AppColors.surface,
               borderRadius: BorderRadius.circular(12),
             ),
@@ -124,9 +124,9 @@ class _DeviceScanScreenState extends ConsumerState<DeviceScanScreen> {
         margin: const EdgeInsets.symmetric(horizontal: 16),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: AppColors.error.withOpacity(0.2),
+          color: AppColors.error.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppColors.error.withOpacity(0.5)),
+          border: Border.all(color: AppColors.error.withValues(alpha: 0.5)),
         ),
         child: Row(
           children: [
@@ -148,7 +148,7 @@ class _DeviceScanScreenState extends ConsumerState<DeviceScanScreen> {
         margin: const EdgeInsets.symmetric(horizontal: 16),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: AppColors.warning.withOpacity(0.2),
+          color: AppColors.warning.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
@@ -219,7 +219,7 @@ class _DeviceScanScreenState extends ConsumerState<DeviceScanScreen> {
                 ? Icons.bluetooth_searching 
                 : Icons.bluetooth,
             size: 64,
-            color: AppColors.textSecondary.withOpacity(0.5),
+            color: AppColors.textSecondary.withValues(alpha: 0.5),
           )
               .animate(
                 onPlay: (controller) => bleState.isScanning 
@@ -278,7 +278,7 @@ class _DeviceScanScreenState extends ConsumerState<DeviceScanScreen> {
         color: AppColors.surface,
         border: Border(
           top: BorderSide(
-            color: AppColors.primary.withOpacity(0.2),
+            color: AppColors.primary.withValues(alpha: 0.2),
           ),
         ),
       ),

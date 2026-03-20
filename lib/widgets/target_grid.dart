@@ -60,7 +60,7 @@ class TargetGrid extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.primary.withOpacity(0.3),
+          color: AppColors.primary.withValues(alpha: 0.3),
           width: 3,
         ),
         borderRadius: BorderRadius.circular(8),
@@ -74,7 +74,7 @@ class TargetGrid extends StatelessWidget {
             bottom: 0,
             child: Container(
               width: 2,
-              color: AppColors.primary.withOpacity(0.2),
+              color: AppColors.primary.withValues(alpha: 0.2),
             ),
           ),
           // Horizontal center line
@@ -84,7 +84,7 @@ class TargetGrid extends StatelessWidget {
             right: 0,
             child: Container(
               height: 2,
-              color: AppColors.primary.withOpacity(0.2),
+              color: AppColors.primary.withValues(alpha: 0.2),
             ),
           ),
         ],
@@ -141,7 +141,7 @@ class _TargetWidget extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color.withOpacity(0.3),
+        color: color.withValues(alpha: 0.3),
         border: Border.all(
           color: color,
           width: target.isActive ? 4 : 2,
@@ -149,12 +149,12 @@ class _TargetWidget extends StatelessWidget {
         boxShadow: target.isActive
             ? [
                 BoxShadow(
-                  color: color.withOpacity(0.6),
+                  color: color.withValues(alpha: 0.6),
                   blurRadius: 20,
                   spreadRadius: 5,
                 ),
                 BoxShadow(
-                  color: color.withOpacity(0.3),
+                  color: color.withValues(alpha: 0.3),
                   blurRadius: 40,
                   spreadRadius: 10,
                 ),

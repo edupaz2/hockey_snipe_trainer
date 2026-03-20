@@ -76,7 +76,11 @@ class AppColors {
 
   /// Convert Color to RGB list for BLE commands
   static List<int> colorToRgb(Color color) {
-    return [color.red, color.green, color.blue];
+    return [
+      (color.r * 255).round().clamp(0, 255),
+      (color.g * 255).round().clamp(0, 255),
+      (color.b * 255).round().clamp(0, 255),
+    ];
   }
 
   /// Create Color from RGB list
